@@ -8,6 +8,8 @@ const httpStatus = require("http-status-codes");
 const lib = require("./libWebUtil");           // home grown utilities
 const experimental = require("./myTemplater"); // highly experimental template
 const querystring = require("querystring");
+let filename = "user.json";
+
 
 const goError = function(res) {
     res.writeHead(httpStatus.NOT_FOUND, {   // http page not found, 404
@@ -45,25 +47,21 @@ exports.receiveData = function(req, res, data) {
     });
     res.write(experimental.receipt(obj));           // home made templating for native node
     
-    let filename = 'user.json';
-    let array = [];
-
+    
     fs.readFile(filename, "utf8", function(err1, data) {
         if (err1) {
             throw err1;
         }
 
-        array = JSON.parse(data);  //Read array  
-        array.push(obj); //tilføjer til array  
-        let jsonstr = JSON.stringify(array);              // stringify 
+        let arr = [];                                   // prep array
+        arr.push(obj);                                  // push obj onto array
+        let jsonstr = JSON.stringify(arr);              // stringify
 
         fs.writeFile(filename, jsonstr, function(err) { // write to json file
-            if (err) {                                  // rewrite, not update
+            if (err) {
                 throw err;
             }
-            console.log("Your messsage was succesfully created");
         });
-        
        
     });
     
