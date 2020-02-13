@@ -1,0 +1,16 @@
+body {
+    height: auto;
+    width: 700px;
+    margin: 0 auto;
+}
+
+img{
+    height: 200px;
+    width: auto;
+    margin: 0 auto;
+    margin: 20px;
+}
+
+header, footer{
+    text-align: center;
+}
