@@ -1,6 +1,6 @@
 # node-IV
 
-<b>Assignment Node IV.0<b>
+<b>Assignment Node IV.0</b>
 
 You will notice that todays project, myg63 is incomplete in that it is unfinished 
 with respect to handling post data from the /contacts HTML5 form. 
